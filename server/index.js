@@ -14,7 +14,6 @@ const app = express();
 app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
-console.log('getting');
 
 // COMMENTS ROUTES
 app.get('/comments_bundle', (req, res, next) => {
@@ -24,8 +23,7 @@ app.get('/comments_bundle', (req, res, next) => {
     .then((response) => {
       const data = response.data;
       console.log('got something');
-      console.log(data.data)
-      res.send(data.data);
+      res.send(data);
     })
     .catch((err) => {
       console.log("didn't get something");
@@ -39,10 +37,10 @@ app.get('/api/comments/songs/:songId', (req, res, next) => {
   const { songId } = req.params;
   limit = Number(limit);
   console.log('proxy asking for json');
+  const request = `${commentsIP}/api/comments/songs/${songId}?page=${page}&limit=${limit}&join=false`;
+  console.log('request string:::::::::::::::', request);
   axios
-    .get(
-      `${commentsIP}/api/comments/songs/${songId}?page=${page}&limit=${limit}&join=false`,
-    )
+    .get(request)
     .then((response) => {
       const data = response.data;
       console.log(data);
