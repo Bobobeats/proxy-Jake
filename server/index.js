@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const axios = require('axios');
 
-const commentsIP = `http://35.163.180.83:4001`;
+const commentsIp = `http://35.163.180.83:4001`;
 const playerIp = `http://44.232.36.205:3002`;
 const relatedTracksIp = `http://44.226.147.90:1000`;
 
@@ -19,7 +19,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
 app.get('/comments_bundle', (req, res, next) => {
   console.log('hello');
   axios
-    .get(commentsIP + '/comments_bundle')
+    .get(commentsIp + '/comments_bundle')
     .then((response) => {
       const data = response.data;
       console.log('got something');
@@ -35,7 +35,7 @@ app.get('/api/comments/songs/:songId', (req, res, next) => {
   let { page, limit, join } = req.query;
   const { songId } = req.params;
   limit = Number(limit);
-  const request = `${commentsIP}/api/songs/${songId}?page=${page}&limit=${limit}&join=false`;
+  const request = `${commentsIp}/api/songs/${songId}?page=${page}&limit=${limit}&join=false`;
   axios
     .get(request)
     .then((response) => {
