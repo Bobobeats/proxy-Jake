@@ -93,4 +93,4 @@ app.get('/api/comments/songs/:songId', (req, res, next) => {
 //   })
 // })
 
-app.listen(8080, () => console.log(`listening to port ${PORT}, yo`));
+app.listen(PORT, () => console.log(`listening to port ${PORT}, yo`));
