@@ -4,4 +4,4 @@ services:
   comment_proxy:
     build: .
     ports:
-      - '4000:3000'
+      - '4000:4000'
