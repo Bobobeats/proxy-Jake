@@ -71,7 +71,17 @@ app.get('/api/player/songs/:songId', (req, res) => {
 })
 
 // RELATED ROUTES
-app.get('/relatedTracks_bundle', (req, res) => {
+app.get(`/api/relatedTracks/songs/:songId`, (req, res) => {
+  const { songId } = req.params;
+  axios.get(`${relatedTracksIp}/api/relatedTracks/songs/${songId}`)
+  .then(data => res.send(data.data))
+  .catch(err => {
+    console.log('ERROR RETRIEVING RELATED TRACKS FOR SONG', err);
+    res.send(err);
+  })
+}) (edited) 
+
+app.get(`/relatedTracks_bundle`, (req, res) => {
   axios.get(`${relatedTracksIp}/relatedTracks_bundle`)
   .then(data => res.send(data.data))
   .catch(err => {
@@ -80,14 +90,6 @@ app.get('/relatedTracks_bundle', (req, res) => {
   })
 });
 
-app.get('/api/relatedTracks/songs/:songId', (req, res) => {
-  const { songId } = req.params;
-  axios.get(`${relatedTracksIp}/api/relatedTracks/songs/${songId}`)
-  .then(data => res.send(data.data))
-  .catch(err => {
-    console.log('ERROR RETRIEVING RELATED TRACKS FOR SONG', err);
-    res.send(err);
-  })
-})
+
 
 app.listen(PORT, () => console.log(`listening to port ${PORT}, yo`));
