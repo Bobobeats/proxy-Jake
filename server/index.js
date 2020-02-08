@@ -24,7 +24,8 @@ app.get('/comments_bundle', (req, res, next) => {
     .then((response) => {
       const data = response.data;
       console.log('got something');
-      res.send(data);
+      console.log(data.data)
+      res.send(data.data);
     })
     .catch((err) => {
       console.log("didn't get something");
