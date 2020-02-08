@@ -1,0 +1,27 @@
+{
+  "name": "proxy-jake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js",
+    "devStart": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bobobeats/proxy-Jake.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bobobeats/proxy-Jake/issues"
+  },
+  "homepage": "https://github.com/Bobobeats/proxy-Jake#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
