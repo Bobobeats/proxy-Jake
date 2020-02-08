@@ -26,7 +26,6 @@ app.get('/comments_bundle', (req, res, next) => {
       res.send(data);
     })
     .catch((err) => {
-      console.log("didn't get something");
       console.log(err);
       res.send(err);
     });
@@ -41,7 +40,6 @@ app.get('/api/comments/songs/:songId', (req, res, next) => {
     .get(request)
     .then((response) => {
       const data = response.data;
-      console.log(data);
       res.send(data);
     })
     .catch((err) => {
