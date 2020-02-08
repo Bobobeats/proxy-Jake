@@ -36,9 +36,7 @@ app.get('/api/comments/songs/:songId', (req, res, next) => {
   let { page, limit, join } = req.query;
   const { songId } = req.params;
   limit = Number(limit);
-  console.log('proxy asking for json');
-  const request = `${commentsIP}/api/comments/songs/${songId}?page=${page}&limit=${limit}&join=false`;
-  console.log('request string:::::::::::::::', request);
+  const request = `${commentsIP}/api/songs/${songId}?page=${page}&limit=${limit}&join=false`;
   axios
     .get(request)
     .then((response) => {
