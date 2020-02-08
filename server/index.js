@@ -8,7 +8,7 @@ const commentsIP = `http://35.163.180.83:4001`;
 const playerIp = `http://44.232.36.205:3002`;
 const relatedTracksIp = `http://44.226.147.90:1000`;
 
-const PORT = 8080;
+const PORT = 4000;
 
 // const playerIP = '';
 const app = express();
