@@ -31,7 +31,7 @@ app.get('/comments_bundle', (req, res, next) => {
     });
 });
 
-app.get('/api/comments/songs/:songId', (req, res, next) => {
+app.get('/api/songs/:songId', (req, res, next) => {
   let { page, limit, join } = req.query;
   const { songId } = req.params;
   limit = Number(limit);
